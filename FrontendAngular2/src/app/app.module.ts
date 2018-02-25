@@ -11,6 +11,7 @@ import { EditorModule } from './editor/editor.module';
 import { HomeModule } from './home/home.module';
 import { contactModule } from './contact/contact.module';
 import { listcModule } from './listc/listc.module';
+import { recoverModule } from './recover/recover.module';
 import { environment } from '../environments/environment';
 import { detailsModule } from './details/details.module';
 import { ProfileModule } from './profile/profile.module';
@@ -52,6 +53,7 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: tru
     SettingsModule,
     contactModule,
     listcModule,
+    recoverModule,
     detailsModule,
     BrowserAnimationsModule, 
     stripeModule,

@@ -50,6 +50,17 @@ export class UserService {
     this.isAuthenticatedSubject.next(true);
   }
 
+  recoverPass(email): Observable<User>{
+    console.log(email);
+    return this.apiService.post('user/recover', {user: email})
+    .map(
+      data => {
+        this.setAuth(data.user);
+        return data;
+      }
+    );
+  }
+
   purgeAuth() {
     // Remove JWT from localstorage
     this.jwtService.destroyToken();
@@ -62,6 +73,7 @@ export class UserService {
   attemptAuth(type, credentials): Observable<User> {
     const route = (type === 'login') ? '/login' : '';
     console.log(credentials);
+    debugger;
     return this.apiService.post('users' + route, {user: credentials})
     .map(
       data => {
